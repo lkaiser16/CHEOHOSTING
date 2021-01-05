@@ -1,0 +1,19 @@
+<mat-sidenav-container fullscreen>
+  <mat-sidenav class="mat-sidenav-menu" position="end" color="primary" #sidenav fxLayout="column" mode="over"
+    opened="false">
+    <app-side-menu-content (SideMenuOpen)='toggleCloseSideMenu($event)'></app-side-menu-content>
+  </mat-sidenav>
+  <mat-sidenav-content class="main-container">
+    <app-toolbar (toggleMenu)="toggleSideMenu()" *ngIf="checkRoute()" [showButtons]="true"></app-toolbar>
+    <mat-sidenav-content class="main-content">
+      <div [ngClass]="{'div-main-content': checkRoute() == true, 'div-main-content-login': checkRoute() == false}">
+        <router-outlet></router-outlet>
+        <div>
+          <div class="example-box" cdkDrag>
+            <!-- <iframe *ngIf="splitscreenActive" class="splitscreen" src="http://localhost:4200/"></iframe> -->
+          </div>
+        </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

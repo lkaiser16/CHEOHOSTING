@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="div-search">
+    <input type="search" (input)="inputChanged($event.target.value)" (keyup.enter)="search()" class="input-search">
+  </div>
+  <button mat-mini-fab class="btnSearch" (click)="search()">
+    <mat-icon style="font-size: 16px;">search</mat-icon>
+  </button>
+</div>
+

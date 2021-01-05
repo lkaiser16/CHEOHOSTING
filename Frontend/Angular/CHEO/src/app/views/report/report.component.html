@@ -1,0 +1,32 @@
+<div id="header-outer">
+  <div fxLayout="row">
+    <app-view-title-and-subtitle [title]="'Report'" [subtitle]="'Report exportieren'">
+    </app-view-title-and-subtitle>
+    <div id="buttons-outer" style="position: relative;">
+      <app-icon-button [iconName]='"save"' [buttonSizeBig]="false" [unterschrift]="'Report exportieren'"
+        (clickEvent)="getReport()">
+      </app-icon-button>
+    </div>
+  </div>
+</div>
+<div style="margin-bottom: 20px;">
+  <div fxLayout="column" fxFlex="33" class="div-input">
+    <app-dropdown (inputValue)="kostenstelleChanged($event)" [formName]="'KOSTENSTELLE'"
+      [options]="kostenstelleKeyValue" [selectedKey]="'K123'"></app-dropdown>
+  </div>
+  <div fxLayout="column" fxFlex="33" class="div-input">
+    <app-dropdown (inputValue)="personChanged($event)" [formName]="'PERSON'" [options]="personKeyValue"
+      [selectedKey]="selectedPerson"></app-dropdown>
+  </div>
+  <div fxLayout="column" fxFlex="33" class="div-input">
+    <app-custom-input (inputValue)="jahrChanged($event)" [formName]="'JAHR'" >
+    </app-custom-input>
+  </div>
+</div>
+<div style="margin-bottom: 20px;">
+  <div fxLayout="column" fxFlex="33" class="div-input">
+    <app-dropdown (inputValue)="exportformatChanged($event)" [formName]="'EXPORTFORMAT'"
+      [options]="exportformatKeyValue" [selectedKey]="1">
+    </app-dropdown>
+  </div>
+</div>

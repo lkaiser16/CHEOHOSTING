@@ -1,0 +1,6 @@
+<div class="container">
+  <button [ngClass]="{'button-big': buttonSizeBig, 'button-small': !buttonSizeBig}" (click)="buttonClick()">
+    <mat-icon [ngClass]="{'button-big-icon': buttonSizeBig, 'button-small-icon': !buttonSizeBig}">{{iconName}}</mat-icon>
+  </button>
+  <h1 [ngClass]="{'button-big-unterschrift': buttonSizeBig, 'button-small-unterschrift': !buttonSizeBig}">{{unterschrift}}</h1>
+</div>

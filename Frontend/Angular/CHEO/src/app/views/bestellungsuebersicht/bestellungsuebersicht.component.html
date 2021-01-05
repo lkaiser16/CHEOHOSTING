@@ -1,0 +1,17 @@
+<div id="header-outer">
+  <div fxLayout="row">
+    <app-view-title-and-subtitle [title]="'Bestellungen'" [subtitle]="'Bestellungsübersicht'">
+    </app-view-title-and-subtitle>
+    <div id="buttons-outer" style="position: relative;">
+      <app-icon-button [iconName]='"add"' [route]="'/Bestellvorgang'" [buttonSizeBig]="false"
+        [unterschrift]="'Neue Bestellung'"></app-icon-button>
+      <app-icon-button [iconName]='"analytics"' [route]="'/Report'" [buttonSizeBig]="false" [unterschrift]="'Reports'">
+      </app-icon-button>
+    </div>
+  </div>
+</div>
+<app-custom-table *ngIf="showBestellungen" [tableData]="bestellungen" [tableColumns]="bestellungenColumns"
+  (tableRowClicked)="bestellungRowClicked($event)" [backendSearch]="true" [backendSearchURL]="searchReqestURL"
+  [tableHeaders]="bestellungenDisplayedHeader">
+</app-custom-table>
+<app-loading-screen *ngIf="dataisLoading" class="loadingScreen"></app-loading-screen>

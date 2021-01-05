@@ -1,0 +1,22 @@
+<div class="div-side-menu" fxLayout="column" fxLayoutAlign="center center">
+  <div class="div-menu-title" fxLayout="row">
+    <div fxFlex="80" fxLayoutAlign="center center">
+      <span class="menu-funktion">{{currentPerson?.funktion}}</span>
+    </div>
+    <div fxFlex="20" fxLayoutAlign="center center">
+      <button mat-icon-button (click)="toggleSideMenu()">
+        <img src="../../assets/icons/keyboard_arrow_right-24px.svg" class="menu-button">
+      </button>
+    </div>
+  </div>
+  <div fxLayout="column" fxLayoutAlign="space-around stretch">
+    <p class="menu-vorname">{{currentPerson?.vorname}}</p>
+    <p class="menu-nachname">{{currentPerson?.nachname}}</p>
+  </div>
+  <hr class="menu-trennlinie" />
+  <a mat-button routerLink="dashboardClick()" (click)="toggleSideMenu()">Dashboard</a>
+  <a mat-button routerLink="/Bestellungsuebersicht" (click)="toggleSideMenu()">Bestellungen</a>
+  <a mat-button routerLink="/Bestellauftragsuebersicht" (click)="toggleSideMenu()">Bestellaufträge</a>
+  <a mat-button routerLink="/Report" (click)="toggleSideMenu()">Reports</a>
+  <a mat-button routerLink="/VerwaltungHome" (click)="toggleSideMenu()">Verwaltung</a>
+</div>

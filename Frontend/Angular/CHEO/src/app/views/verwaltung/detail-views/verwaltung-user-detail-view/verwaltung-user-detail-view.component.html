@@ -1,0 +1,47 @@
+<div id="header-outer">
+  <div fxLayout="row">
+    <app-view-title-and-subtitle [title]="'Verwaltung'" [subtitle]="'Verwaltung der User'">
+    </app-view-title-and-subtitle>
+    <div id="buttons-outer" style="position: relative;">
+      <app-icon-button [iconName]='"save"' [buttonSizeBig]="false" [unterschrift]="'User speichern'"
+        (clickEvent)="userSpeichern()"></app-icon-button>
+      <app-icon-button [iconName]='"delete"' [buttonSizeBig]="false" [unterschrift]="'User löschen'"
+        (clickEvent)="userLoeschen()">
+      </app-icon-button>
+      <app-icon-button [iconName]='"group_add"' [buttonSizeBig]="false" [unterschrift]="'Userübersicht'"
+        route='/VerwaltungUser'>
+      </app-icon-button>
+      <app-icon-button *ngIf="userId" [iconName]='"security"' [buttonSizeBig]="false" [unterschrift]="'Passwort ändern'" 
+      (clickEvent)="clickChangePassword()">
+      </app-icon-button>
+    </div>
+  </div>
+</div>
+<div fxLayout="column" style="margin-bottom: 20px;">
+  <h1 class="header" style="margin-top: 0px;">Allgemeines</h1>
+  <div style="width: 100%;">
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-custom-input (inputValue)="this.user.username = $event" [selectedValue]="user.username"
+        [formName]="'USERNAME*'" [validierungMessage]="'Username muss gesetzt werden'" [isValid]="usernameIsValid">
+      </app-custom-input>
+    </div>
+    <div fxLayout="column" fxFlex="33" class="div-input" *ngIf="!userId">
+      <app-custom-input (inputValue)="this.user.passwort = $event" [selectedValue]="user.passwort" 
+        [formName]="'PASSWORT*'" [type]="'password'" [validierungMessage]="'Passwort muss gesetzt werden'"
+        [isValid]="passwortIsValid">
+      </app-custom-input>
+    </div>
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-dropdown (inputValue)="rechteChanged($event)" [formName]="'RECHTE*'" [options]="rechteKeyValue"
+        [selectedKey]="selectedRechte" [validierungMessage]="'Rechte müssen gesetzt werden'"
+        [isValid]="rechteIsValid"></app-dropdown>
+    </div>
+  </div>
+  <div style="width: 100%;">
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-dropdown (inputValue)="personChanged($event)" [formName]="'PERSON*'" [options]="personKeyValue"
+        [selectedKey]="selectedPerson" [validierungMessage]="'Die Person, die diesen User verwendet, muss gesetzt werden'"
+        [isValid]="personIsValid"></app-dropdown>
+    </div>
+  </div>
+</div>

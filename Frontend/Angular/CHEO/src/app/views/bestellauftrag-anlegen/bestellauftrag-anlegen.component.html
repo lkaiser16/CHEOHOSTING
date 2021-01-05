@@ -1,0 +1,33 @@
+<div id="header-outer">
+  <div fxLayout="row">
+    <app-view-title-and-subtitle [title]="'Bestellaufträge'" [subtitle]="'Bestellauftrag anlegen'">
+    </app-view-title-and-subtitle>
+    <div id="buttons-outer" style="position: relative;">
+      <app-icon-button [iconName]='"save"' [buttonSizeBig]="false" [unterschrift]="'Bestellauftrag speichern'"
+        (click)="bestellungauftragSpeichern()" ></app-icon-button>
+      <app-icon-button [iconName]='"delete"' [buttonSizeBig]="false" [unterschrift]="'Bestellauftrag löschen'"
+        (click)="bestellungauftragLoeschen()"></app-icon-button>
+      <app-icon-button [iconName]='"assignment"' [buttonSizeBig]="false" [unterschrift]="'Bestellauftragsübersicht'"
+        [route]="'Bestellauftragsuebersicht'"></app-icon-button>
+    </div>
+  </div>
+</div>
+<div fxLayout="column" style="margin-bottom: 20px;">
+  <h1 class="header-teilbereiche" *ngIf="currentUser.rechte == 1">Allgemeines</h1>
+  <div fxLayout="column" fxFlex="33" *ngIf="currentUser.rechte == 1">
+    <app-dropdown style="width: 400px;" (inputValue)="statusChanged($event)" [formName]="'STATUS'"
+      [options]="statusKeyValue" [selectedKey]="selectedStatus" [validierungMessage]="'Status muss gesetzt werden'" [isValid]="statusValid"></app-dropdown>
+  </div>
+  <h1 class="header-teilbereiche">Chemikalien</h1>
+  <div fxLayout="column" style="margin-bottom: 20px;">
+    <app-bestellauftrag-chemikalien-table (chemikalienList)="updateChemikalien($event)" style="width: 100%;"
+      [chemikalien]="chemikalien">
+    </app-bestellauftrag-chemikalien-table>
+  </div>
+  <h1 class="header-teilbereiche">Bestellzusatz</h1>
+  <div class="textarea-wrapper">
+    <textarea pInputTextArea class="textarea" role="textbox" [(ngModel)]="bestellzusatz" (ngModelChange)="valueChange()"
+      contenteditable maxlength="800"></textarea>
+    <span class="char-count">{{remainingText}} / 800 Zeichen</span>
+  </div>
+</div>

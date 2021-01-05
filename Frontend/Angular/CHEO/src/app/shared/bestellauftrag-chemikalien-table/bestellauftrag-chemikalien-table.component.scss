@@ -1,0 +1,50 @@
+.btnAdd
+{
+	align-self: center;
+	background-color: var(--button);
+	color: var(--button-icon)
+}
+.btnAddWrapper
+{
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+.btnDelete
+{
+	background-color: var(--button);
+	color: var(--button-icon)
+}
+.input-beschreibung
+{
+	color: var(--font);
+	font-family: gotham bold;
+	font-size: 18px;
+	line-height: 18px;
+	margin-bottom: 2px;
+	margin-left: 10px;
+}
+.input-feld
+{
+	border: gray 1px solid;
+	border-radius: 15px;
+	background-color: white;
+	font-size: 16px;
+	height: 30px;
+	padding-left: 5px;
+	padding-right: 5px;
+	width: 90%;
+}
+.input-feld:focus
+{
+	outline: none;
+}
+.trennstrich
+{
+	border-top: 1px solid var(--main);
+}
+div
+{
+	display: inline-block;
+}

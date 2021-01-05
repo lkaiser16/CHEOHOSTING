@@ -1,0 +1,57 @@
+<div fxLayout="column">
+
+  <h1 class="header">Allgemeines</h1>
+  <div>
+    <div style="width: 100%;">
+      <div fxLayout="column" fxFlex="33" class="div-combobox">
+        <app-dropdown (inputValue)="bestellerChanged($event)" [formName]="'BESTELLER*'" [options]="bestellerKeyValue"
+          [selectedKey]="selectedBestellerId" [validierungMessage]="'Besteller muss gesetzt werden'"
+          [isValid]="isBestellerValid"></app-dropdown>
+      </div>
+      <div fxLayout="column" fxFlex="33" class="div-combobox">
+        <app-dropdown (inputValue)="durchfuehrerChanged($event)" [formName]="'DURCHFÜHRER*'"
+          [options]="durchfuehrerKeyValue" [selectedKey]="selectedDurchfuehrerId"
+          [validierungMessage]="'Durchführer muss gesetzt werden'" [isValid]="isDurchfuehrerValid"></app-dropdown>
+      </div>
+      <div fxLayout="column" fxFlex="33" class="div-combobox">
+        <form class="allgemeines-form">
+          <mat-form-field [floatLabel]="'never'" class="allgemeines-form-full-width">
+            <mat-label>dd.mm.yyyy</mat-label>
+            <input matInput [matDatepicker]="picker" [ngModel]="date"
+              (dateChange)="dateChangedEvent($event.target.value)" [ngModelOptions]="{standalone: true}"
+              class="datepicker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </form>
+        <h1 class="input-bezeichnung">BESTELLDATUM</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<h1 class="header">Artikel</h1>
+<div class="div-artikel">
+  <div fxFlex="50" fxLayout="column" class="div-artikel-outer">
+    <div fxLayout="row" class="div-artikel-header">
+      <app-search-bar (searchTextChanged)="artikelSearchFieldTextChanged($event)" class="artikel-search-bar">
+      </app-search-bar>
+      <div class="div-button-add-artikel">
+        <button (click)="btnAddArtikelClick()">
+          <mat-icon class="button-add-artikel-icon">add</mat-icon>
+        </button>
+        <h1>Artikel anlegen</h1>
+      </div>
+    </div>
+    <div class="div-artikel-table">
+      <app-table-artikel></app-table-artikel>
+    </div>
+  </div>
+  <div fxFlex="50" fxLayout="column" class="div-artikel-outer">
+    <div fxLayout="row" class="div-artikel-header">
+      <h1 class="hinzugefuegte-artikel">Hinzugefügte Artikel</h1>
+    </div>
+    <div class="div-artikel-table">
+      <app-table-hinzugefuegte-artikel [artikel]="artikelAdded"></app-table-hinzugefuegte-artikel>
+    </div>
+  </div>
+</div>

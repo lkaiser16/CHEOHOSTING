@@ -1,0 +1,9 @@
+<div id="header-outer">
+  <div fxLayout="row" style="position: relative;">
+    <app-view-title-and-subtitle [title]="'Bestellaufträge'" [subtitle]="'Übersicht deiner Bestellaufträge'">
+    </app-view-title-and-subtitle>
+  </div>
+</div>
+<app-custom-table *ngIf="showBestellauftraege" [tableData]="bestellauftraege" [tableColumns]="bestellauftraegeColumns"
+  (tableRowClicked)="tableRowClicked($event)" [tableHeaders]="bestellauftraegeDisplayedHeader"></app-custom-table>
+<app-loading-screen *ngIf="dataisLoading" class="loadingScreen"></app-loading-screen>

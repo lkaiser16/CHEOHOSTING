@@ -1,0 +1,61 @@
+#buttons-outer
+{
+	min-height: 10%;
+	text-align: center;
+	width: 100%;
+}
+#header-outer
+{
+	font-family: gotham bold;
+	font-size: 48px;
+	margin-bottom: 10px;
+	margin-top: 20px;
+	text-align: left;
+}
+.buttons-inner
+{
+	display: inline-block;
+	margin-left: 20px;
+}
+.buttons-inner button
+{
+	background-color: var(--button);
+	border-color: transparent;
+	border-radius: 25px;
+	box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.3);
+	height: 100px;
+	margin-bottom: 10px;
+	margin-right: 40px;
+	margin-right: 50px;
+	moz-window-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.3);
+	outline: none;
+	webkit-box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.3);
+	width: 100px;
+}
+.buttons-inner button:hover
+{
+	background-color: var(--hover);
+	cursor: pointer;
+}
+.buttons-inner h1
+{
+	align-items: center;
+	color: black;
+	display: flex;
+	
+	font-size: 14px;
+	justify-content: center;
+	margin-right: 40px;
+	text-align: center;
+}
+.button-tabs
+{
+	align-items: center;
+	color: var(--button-icon);
+	display: inline;
+	font-family: gotham bold;
+	font-size: 48px;
+	justify-content: center;
+	text-align: center;
+	vertical-align: middle;
+}

@@ -1,0 +1,63 @@
+.btn-logo {
+  margin: 0;
+  padding: 0;
+}
+
+.img-logo {
+  height: 60px;
+  width: auto;
+}
+
+.main-container {
+  overflow: hidden;
+}
+
+.toolbar {
+  height: 70px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar-button {
+  margin-left: 5px;
+}
+
+.toolbar-button:hover {
+  background-color: var(--hover);
+}
+
+.toolbar-button-icon {
+  font-size: 30px;
+  text-align: center;
+  vertical-align: middle;
+  width: 30px;
+}
+
+.toolbar-back-button {
+  margin: auto;
+  margin-right:10px;
+  transform: rotate(180deg);
+  border-radius: 500px;
+
+}
+
+.toolbar-back-button:hover {
+  cursor: pointer;
+  background-color: var(--hover);
+}
+
+mat-sidenav-container {
+  border-radius: 0px 0px 20px 20px;
+}
+
+mat-toolbar {
+  align-items: center;
+  background-color: var(--main);
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.3);
+  color: white;
+  moz-box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.3);
+  webkit-box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.3);
+}

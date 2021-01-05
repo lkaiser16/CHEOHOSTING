@@ -1,0 +1,35 @@
+<div class="div-table">
+    <table mat-table [dataSource]="dataSource" matSort>
+  
+      <ng-container matColumnDef="artikelNr" >
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ArtikelNr </th>
+        <td class="table-column-name cell-name" mat-cell *matCellDef="let row"> {{row.artikelNr}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="bezeichnung">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Bezeichnung </th>
+        <td class="table-column-nummer cell-nummer" mat-cell *matCellDef="let row"> {{row.bezeichnung}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="stueckpreis">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Stückpreis </th>
+        <td class="table-column-stueckpreis cell-stueckpreis" mat-cell *matCellDef="let row"> {{row.preis.toFixed(2) }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="button">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+        <td class="table-column-button cell-button" mat-cell *matCellDef="let row">
+            <button mat-button style="justify-content: center; width: 50px;"><mat-icon style="font-size: 28px;">keyboard_arrow_right</mat-icon></button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getRecord(row)"></tr>
+  
+      <!-- <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">Keine Übereinstimmung mit "{{input.value}}" gefunden</td>
+        </tr> -->
+    </table>
+  
+    <mat-paginator  [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="25" class="paginator"></mat-paginator>
+  </div>

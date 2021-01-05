@@ -1,0 +1,84 @@
+<div id="header-outer">
+  <div fxLayout="row">
+    <app-view-title-and-subtitle [title]="'Verwaltung'" [subtitle]="'Verwaltung der Artikel'">
+    </app-view-title-and-subtitle>
+    <div id="buttons-outer" style="position: relative;">
+      <app-icon-button [iconName]='"save"' [buttonSizeBig]="false" [unterschrift]="'Artikel speichern'"
+        (clickEvent)="artikelSpeichern()"></app-icon-button>
+      <app-icon-button [iconName]='"delete"' [buttonSizeBig]="false" [unterschrift]="'Artikel löschen'"
+        (clickEvent)="artikelLoeschen()">
+      </app-icon-button>
+      <app-icon-button [iconName]='"add_shopping_cart"' [buttonSizeBig]="false" [unterschrift]="'Artikelübersicht'"
+        route='/VerwaltungArtikel'>
+      </app-icon-button>
+    </div>
+  </div>
+</div>
+<div fxLayout="column" style="margin-bottom: 20px;">
+  <h1 class="header" style="margin-top: 0px;">Allgemeines</h1>
+  <div style="width: 100%;">
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-custom-input (inputValue)="this.artikel.artikelNr = $event" [selectedValue]="artikel.artikelNr"
+        [formName]="'ARTIKELNUMMER*'" [validierungMessage]="'Artikelnummer muss gesetzt werden'"
+        [isValid]="artikelNrIsValid">
+      </app-custom-input>
+    </div>
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-custom-input (inputValue)="this.artikel.bezeichnung = $event" [selectedValue]="artikel.bezeichnung"
+        [formName]="'BEZEICHNUNG*'" [validierungMessage]="'Bezeichnung muss gesetzt werden'"
+        [isValid]="bezeichnungIsValid">
+      </app-custom-input>
+    </div>
+    <div fxLayout="column" fxFlex="33">
+      <app-dropdown (inputValue)="this.artikel.kategorie = $event.value" [formName]="'KATEGORIE'"
+        [options]="kategorieKeyValue" [selectedKey]="selectedKategorie">
+      </app-dropdown>
+    </div>
+  </div>
+  <div style="width: 100%;">
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <form class="eingabe-form">
+        <mat-form-field class="eingabe-form-full-width" [floatLabel]="'never'">
+          <input type="number" matInput [(ngModel)]='artikel.preis' [ngModelOptions]="{standalone: true}" step="0.01"
+            pattern="^\d+(.\d{1,2})?" min="0">
+        </mat-form-field>
+      </form>
+      <h1 class="input-unterschrift">PREIS</h1>
+    </div>
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-custom-input (inputValue)="this.artikel.reinheit = $event" [selectedValue]="artikel.reinheit"
+        [formName]="'REINHEIT'">
+      </app-custom-input>
+    </div>
+    <div fxLayout="column" fxFlex="33">
+      <app-custom-input (inputValue)="this.artikel.zuordnung = $event" [selectedValue]="artikel.zuordnung"
+        [formName]="'ZUORDNUNG'">
+      </app-custom-input>
+    </div>
+  </div>
+  <div style="width: 100%;">
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-custom-input (inputValue)="this.artikel.packungsgroesse = $event" [selectedValue]="artikel.packungsgroesse"
+        [formName]="'PACKUNGSGROESSE'">
+      </app-custom-input>
+    </div>
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-dropdown (inputValue)="lieferantChanged($event)" [formName]="'LIEFERANT'" [options]="lieferantKeyValue"
+        [selectedKey]="artikel.lieferantId">
+      </app-dropdown>
+    </div>
+    <div fxLayout="column" fxFlex="33">
+      <app-custom-input (inputValue)="this.artikel.hersteller = $event" [selectedValue]="artikel.hersteller"
+        [formName]="'HERSTELLER'">
+      </app-custom-input>
+    </div>
+  </div>
+  <h1 class="header">Anmerkungen</h1>
+  <div style="width: 100%;">
+    <div class="textarea-wrapper">
+      <textarea pInputTextArea class="textarea" role="textbox" [(ngModel)]="artikel.anmerkungen"
+        contenteditable>
+      </textarea>
+    </div>
+  </div>
+</div>

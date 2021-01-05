@@ -1,0 +1,23 @@
+<mat-sidenav-container>
+
+  <mat-sidenav-content class="main-container">
+    <mat-toolbar class="toolbar">
+      <button *ngIf="checkRoute()" mat-button class="toolbar-back-button" (click)="backButtonClick()">
+        <mat-icon>double_arrow
+        </mat-icon>
+      </button>
+      <a mat-button class="btn-logo" [disabled]="!checkRoute()" (click)="clickLogo()">
+        <img class="img-logo" src="../assets/images/Logo_Cheo.png">
+      </a>
+      <span class="spacer"></span>
+      <div *ngIf="checkRoute()">
+        <button mat-icon-button (click)="logoutClick()" class="toolbar-button">
+          <mat-icon matTooltipp="Hallo" class="toolbar-button-icon">login</mat-icon>
+        </button>
+        <button mat-icon-button (click)="toggleSideMenu()" class="toolbar-button">
+          <mat-icon matTooltipp="Hallo" class="toolbar-button-icon">keyboard_arrow_left</mat-icon>
+        </button>
+      </div>
+    </mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container>

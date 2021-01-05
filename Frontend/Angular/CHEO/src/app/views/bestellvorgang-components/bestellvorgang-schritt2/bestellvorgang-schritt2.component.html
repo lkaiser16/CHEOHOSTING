@@ -1,0 +1,63 @@
+<div fxLayout="column">
+  <h1 class="header">Weitere Informationen</h1>
+  <div style="width: 100%;">
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-custom-input (inputValue)="sapNummerChangedEvent($event)" [selectedValue]="sapNummer"
+        [formName]="'SAP-NUMMER'">
+      </app-custom-input>
+    </div>
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-custom-input (inputValue)="angebotsnummerChangedEvent($event)" [selectedValue]="angebotsNummer"
+        [formName]="'ANGEBOTSNUMMER'">
+      </app-custom-input>
+    </div>
+    <div fxLayout="column" fxFlex="33">
+      <app-dropdown (inputValue)="zugehoerigkeitChanged($event)" [formName]="'ZUGEHÖRIGKEIT'"
+        [options]="zugehoerigkeitKeyValue" [selectedKey]="zugehoerigkeitsId"></app-dropdown>
+    </div>
+  </div>
+  <div style="width: 100%;">
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-custom-input (inputValue)="bestellungsnummerChangedEvent($event)" [selectedValue]="bestellungsNummer"
+      [validierungMessage]="'Bestellungsnummer muss gesetzt werden'" [isValid]="isBestellungsNummberValid" [formName]="'BESTELLUNGSNUMMER*'">
+      </app-custom-input>
+    </div>
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-dropdown (inputValue)="kostenstelleChanged($event)" [formName]="'KOSTENSTELLE*'"
+        [options]="kostenstelleKeyValue" [selectedKey]="kostenstellenId"
+        [validierungMessage]="'Kostenstelle muss gesetzt werden'" [isValid]="isKostenstelleValid"></app-dropdown>
+    </div>
+    <div fxLayout="column" fxFlex="33">
+      <form class="eingabe-form">
+        <mat-form-field [floatLabel]="'never'" class="eingabe-form-full-width">
+          <mat-label>dd.mm.yyyy</mat-label>
+          <input matInput [matDatepicker]="picker" [ngModel]="lieferDate"
+            (dateChange)="dateChangedEvent($event.target.value)" [ngModelOptions]="{standalone: true}"
+            class="datepicker">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </form>
+      <h1 class="input-unterschrift">LIEFERDATUM</h1>
+    </div>
+  </div>
+  <h1 class="header">Status</h1>
+  <div style="width: 100%;">
+    <div fxLayout="column" fxFlex="31.5">
+      <app-dropdown (inputValue)="statusChanged($event)" [formName]="'STATUS*'" [options]="statusKeyValue"
+        [selectedKey]="statusId" [validierungMessage]="'Status muss gesetzt werden'" [isValid]="isStatusValid">
+      </app-dropdown>
+    </div>
+  </div>
+</div>
+
+<div style="float: right; text-align: center;">
+  <app-icon-button [iconName]='"save"' [buttonSizeBig]="false" [unterschrift]="'Bestellung speichern'"
+    (clickEvent)="saveBestellung()">
+  </app-icon-button>
+  <!-- <app-icon-button [iconName]='"done_outline"' [buttonSizeBig]="false" [unterschrift]="'Bestellung genehmigen'">
+  </app-icon-button> -->
+  <app-icon-button [iconName]='"delete"' [buttonSizeBig]="false" [unterschrift]="'Bestellung löschen'"
+    (clickEvent)="deleteBestellung()">
+  </app-icon-button>
+</div>

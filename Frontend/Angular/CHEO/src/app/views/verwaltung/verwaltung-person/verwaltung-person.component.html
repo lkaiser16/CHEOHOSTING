@@ -1,0 +1,17 @@
+<div id="header-outer">
+  <div fxLayout="row">
+    <app-view-title-and-subtitle [title]="'Verwaltung'" [subtitle]="'Verwaltung der Personen'">
+    </app-view-title-and-subtitle>
+    <div id="buttons-outer" style="position: relative;">
+      <app-icon-button [iconName]='"add"' [buttonSizeBig]="false" [unterschrift]="'Personen anlegen'"
+        (clickEvent)="btnPersonAnlegen()"></app-icon-button>
+      <app-icon-button [iconName]='"settings"' [buttonSizeBig]="false" [unterschrift]="'Verwaltungsübersicht'"
+        route='/VerwaltungHome'>
+      </app-icon-button>
+    </div>
+  </div>
+</div>
+<div fxLayout="column" style="margin-bottom: 20px;">
+  <app-custom-table (tableRowClicked)="personenRowClick($event)" *ngIf="loaded" [tableData]="personen"
+    [tableColumns]="personColumns" [tableHeaders]="personDisplayedHeader"></app-custom-table>
+</div>

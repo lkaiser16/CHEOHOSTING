@@ -1,0 +1,29 @@
+#buttons-outer {
+  margin: 20px;
+  min-height: 10%;
+  width: 100%;
+  display: inline-block;
+}
+
+#search-bar-outer {
+  border-top: solid 2px var(--main);
+  display: flex;
+  display: flex;
+  height: auto;
+  width: 100%;
+}
+
+.header-outer {
+  font-family: gotham bold;
+  font-size: 48px;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.search-bar-inner-one {
+  font-family: gotham bold;
+  font-size: 28px;
+  line-height: 28px;
+  margin-top: 20px;
+  width: 80%;
+}

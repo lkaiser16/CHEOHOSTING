@@ -1,0 +1,39 @@
+<div id="header-outer">
+  <div fxLayout="row">
+    <app-view-title-and-subtitle [title]="'Verwaltung'" [subtitle]="'Verwaltung der Kostenstellen'">
+    </app-view-title-and-subtitle>
+    <div id="buttons-outer" style="position: relative;">
+      <app-icon-button [iconName]='"save"' [buttonSizeBig]="false" [unterschrift]="'Kostenstelle speichern'"
+        (clickEvent)="kostenstelleSpeichern()"></app-icon-button>
+      <app-icon-button [iconName]='"delete"' [buttonSizeBig]="false" [unterschrift]="'Kostenstelle löschen'"
+        (clickEvent)="kostenstelleLoeschen()">
+      </app-icon-button>
+      <app-icon-button [iconName]='"add_shopping_cart"' [buttonSizeBig]="false"
+        [unterschrift]="'Kostenstellenübersicht'" route='/VerwaltungKostenstelle'>
+      </app-icon-button>
+    </div>
+  </div>
+</div>
+<div fxLayout="column" style="margin-bottom: 20px;">
+  <h1 class="header" style="margin-top: 0px;">Allgemeines</h1>
+  <div style="width: 100%;">
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-custom-input (inputValue)="kostenstelle.name = $event" [selectedValue]="kostenstelle.name" 
+        [formName]="'NAME*'" [validierungMessage]="'Name muss gesetzt werden'" [isValid]="nameIsValid"></app-custom-input>
+    </div>
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-custom-input (inputValue)="kostenstelle.nummer = $event" [selectedValue]="kostenstelle.nummer"
+        [formName]="'KOSTENSTELLEN-NUMMER*'" [validierungMessage]="'Nummer muss gesetzt werden'" [isValid]="nummerIsValid">
+      </app-custom-input>
+    </div>
+  </div>
+  <h1 class="header">Beschreibung</h1>
+  <div style="width: 100%;">
+    <div style="width: 100%;">
+      <div class="textarea-wrapper">
+        <textarea pInputTextArea class="textarea" role="textbox" [(ngModel)]="kostenstelle.beschreibung"
+          contenteditable></textarea>
+      </div>
+    </div>
+  </div>
+</div>

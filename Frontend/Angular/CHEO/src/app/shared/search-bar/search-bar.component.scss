@@ -1,0 +1,44 @@
+.btnSearch
+{
+	background-color: var(--button);
+	color: var(--button-icon);
+	display: inline-block;
+	height: 30px;
+	width: 30px;
+}
+.container
+{
+	border: solid 1px;
+	border-color: var(--border);
+	border-radius: 20px;
+	padding: 5px;
+	width: 300px;
+}
+.div-search
+{
+	display: table-cell;
+	padding-right: 5px;
+	vertical-align: top;
+	width: 100%;
+}
+.input-search
+{
+	background-color: lightgray;
+	border: none;
+	border-radius: 20px;
+	display: inline-block;
+	
+	font-size: 16px;
+	height: 30px;
+	outline: none;
+	padding: 10px;
+	width: 100%;
+}
+.input-search:focus
+{
+	outline: none;
+}
+div
+{
+	display: table;
+}

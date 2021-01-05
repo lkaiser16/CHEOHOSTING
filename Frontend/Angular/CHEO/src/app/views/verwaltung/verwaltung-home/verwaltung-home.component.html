@@ -1,0 +1,19 @@
+<div class="header-outer">
+  <app-view-title-and-subtitle [title]="'Verwaltung'" [subtitle]="'Verwalte das Programm'">
+  </app-view-title-and-subtitle>
+</div>
+<div id="buttons-outer">
+  <app-icon-button [iconName]='"add_shopping_cart"' [buttonSizeBig]="true" route='/VerwaltungArtikel'
+    [unterschrift]="'Artikel'">
+  </app-icon-button>
+  <app-icon-button [iconName]='"folder_open"' [buttonSizeBig]="true" route='/VerwaltungKostenstelle'
+    [unterschrift]="'Kostenstellen'">
+  </app-icon-button>
+  <app-icon-button [iconName]='"local_shipping"' [buttonSizeBig]="true" route='/VerwaltungLieferant'
+    [unterschrift]="'Lieferanten'">
+  </app-icon-button>
+  <app-icon-button [iconName]='"group_add"' [buttonSizeBig]="true" route='/VerwaltungPerson' [unterschrift]="'Personen'">
+  </app-icon-button>
+  <app-icon-button [iconName]='"supervisor_account"' [buttonSizeBig]="true" route='/VerwaltungUser' [unterschrift]="'User'">
+  </app-icon-button>
+</div>

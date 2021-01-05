@@ -1,0 +1,77 @@
+.button-big-icon
+{
+	color: var(--button-icon);
+	display: inline;
+	font-size: 120px;
+	justify-content: center;
+}
+.button-big {
+    background-color: var(--button);
+	border-color: transparent;
+	border-radius: 25px;
+	box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.3);
+	height: 200px;
+	margin-right: 40px;
+	moz-window-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.3);
+	outline: none;
+	webkit-box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.3);
+	width: 200px;
+}
+.button-small-icon
+{
+	align-items: center;
+	color: var(--button-icon);
+	display: inline;
+	font-size: 48px;
+	justify-content: center;
+	text-align: center;
+	vertical-align: middle;
+}
+.button-small
+{
+	background-color: var(--button);
+	border-color: transparent;
+	border-radius: 25px;
+	box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.3);
+	height: 100px;
+	margin-right: 40px;
+	moz-window-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.3);
+	outline: none;
+	webkit-box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.3);
+	width: 100px;
+}
+button:hover
+{
+	background-color: var(--hover);
+	cursor: pointer;
+}
+.button-big-unterschrift
+{
+	margin-top: 5px;
+	align-items: center;
+	color: black;
+	display: flex;
+	font-family: gotham light;
+	font-size: 18px;
+	justify-content: center;
+	margin-right: 40px;
+	text-align: center;
+	line-height: 20px;
+	margin-top: 10px;
+}
+.button-small-unterschrift
+{
+	align-items: center;
+	color: black;
+	display: flex;
+	font-family: gotham light;
+	font-size: 14px;
+	justify-content: center;
+	margin-right: 40px;
+	text-align: center;
+	line-height: 16px;
+	margin-top: 10px;
+}
+.container {
+	display: inline-block;
+}

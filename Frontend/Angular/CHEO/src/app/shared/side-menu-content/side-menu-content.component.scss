@@ -1,0 +1,67 @@
+.div-menu-title
+{
+	margin-bottom: 20px;
+	padding: 5px;
+	width: 100%;
+}
+.div-side-menu
+{
+	padding: 5px;
+}
+.div-side-menu a
+{
+	font-size: 24px;
+	font-weight: 80;
+	margin-bottom: 10px;
+}
+.div-side-menu a:focus
+{
+	background-color: var(--hover);
+	border-radius: 25px;
+	color: white;
+}
+.div-side-menu a:hover
+{
+	background-color: var(--hover);
+	border-radius: 25px;
+	color: white;
+}
+.mat-icon-button ::ng-deep .mat-button-focus-overlay
+{
+	display: none;
+}
+.mat-icon-button:hover
+{
+	background-color: lightgray;
+}
+.menu-button
+{
+	max-height: 80%;
+	min-height: 80%;
+}
+.menu-funktion
+{
+	color: var(--font);
+	font-family: gotham bold;
+}
+.menu-nachname
+{
+	
+	font-size: 16px;
+	margin-bottom: 20px;
+	text-align: right;
+}
+.menu-trennlinie
+{
+	background-color: var(--main);
+	border: solid var(--main) 1px;
+	height: 1px;
+	margin-bottom: 20px;
+	width: 100%;
+}
+.menu-vorname
+{
+	font-family: gotham bold;
+	font-size: 32px;
+	margin-bottom: 5px;
+}

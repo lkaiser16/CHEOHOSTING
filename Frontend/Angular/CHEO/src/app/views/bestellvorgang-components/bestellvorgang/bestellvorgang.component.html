@@ -1,0 +1,42 @@
+<div id="header-outer">
+  <div fxLayout="row">
+    <app-view-title-and-subtitle [title]="'Bestellungen'" [subtitle]="'Bestellung anlegen'">
+    </app-view-title-and-subtitle>
+    <div id="buttons-outer" style="position: relative;">
+      <div class="buttons-inner">
+        <button class="button-tabs"
+          [ngStyle]="{'background-color': stepOneActive? 'var(--hover);' : 'var(--button);'}"
+          (click)="loadStepOne()">1</button>
+      </div>
+      <div class="buttons-inner">
+        <button class="button-tabs"
+          [ngStyle]="{'background-color': stepTwoActive? 'var(--hover);' : 'var(--button);'}"
+          (click)="loadStepTwo()">2</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div fxLayout="column" style="margin-bottom: 20px;" [ngStyle]="{'pointer-events': bestellungEditable ? 'all' : 'none' }">
+  <app-bestellvorgang-schritt1 [hidden]="!stepOneActive" [bestellerKeyValue]="bestellerKeyValue" 
+    [durchfuehrerKeyValue]="durchfuehrerKeyValue" [date]="date" [artikelAdded]="addedArtikel"
+    [selectedBestellerId]="bestellerId" [selectedDurchfuehrerId]="durchfuehrerId" 
+    (selectedBestellerIdChanged)="selectedBestellerIdChanged($event)"
+    (selectedDurchfuehrerIdChanged)="selectedDurchfuehrerIdChanged($event)" (dateChanged)="dateChanged($event)"
+    (artikelAddedChanged)="artikelAddedChanged($event)" [isBestellerValid]="isBestellerValid"
+    [isDurchfuehrerValid]="isDurchfuehrerValid">
+    <!-- *ngIf="stepOneActive" -->
+  </app-bestellvorgang-schritt1>
+  <app-bestellvorgang-schritt2 [hidden]="!stepTwoActive" [sapNummer]="sapNummer" [angebotsNummer]="angebotsNummer"
+    [bestellungsNummer]="bestellungsNummer" [lieferDate]="lieferDate" [zugehoerigkeitsId]="zugehoerigkeitId"
+    [kostenstellenId]="kostenstellenId" [statusId]="statusId" [zugehoerigkeitKeyValue]="zugehoerigkeitKeyValue"
+    [kostenstelleKeyValue]="kostenstelleKeyValue" [statusKeyValue]="statusKeyValue"
+    (sapNummerChanged)="sapNummerChanged($event)" (angebotsNummerChanged)="angebotsNummerChanged($event)"
+    (bestellungsNummerChanged)="bestellungsNummerChanged($event)" (lieferDateChanged)="lieferDateChanged($event)"
+    (kostenstellenIdChanged)="kostenstellenIdChanged($event)"
+    (zugehoerigkeitsIdChanged)="zugehoerigkeitsIdChanged($event)" (statusIdChanged)="statusIdChanged($event)"
+    (saveBestellungClicked)="saveBestellung()" (deleteBestellungClicked)="deleteBestellungClicked()" 
+    [isKostenstelleValid]="isKostenstelleValid" [isStatusValid]="isStatusValid" [isBestellungsNummberValid]="isBestellungsNummberValid"
+    >
+    <!-- *ngIf="stepTwoActive" -->
+  </app-bestellvorgang-schritt2>
+</div>

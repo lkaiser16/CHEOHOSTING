@@ -1,0 +1,16 @@
+<div class="main-div">
+  <app-toolbar [showButtons]="false"></app-toolbar>
+  <mat-sidenav-container class="mat-sidenav-container" fxFlexFill>
+    <mat-sidenav-content class="mat-sidenav-content" fxFlexFill fxLayout="column" fxLayoutAlign="center center">
+      <h1 class="login-font">LOGIN</h1>
+      <input id="input-username" name="input-username" required minlength="4" type="text" placeholder="Benutzername"
+        [(ngModel)]="username" [value]="username" class="form-field-username" #name="ngModel" (keydown.enter)="inputPasswordKeyDown()"/>
+      <input type="password" placeholder="Passwort" [value]="password" (keydown.enter)="inputPasswordKeyDown()"
+        [(ngModel)]="password" class="form-field-password" />
+      <button mat-raised-button type="submit" class="raised-button-sign-in" (click)="btnLoginClick()">
+        Anmelden
+      </button>
+      <div style="color: red;" *ngIf="showError === true" class="alert alert-danger" [innerHTML]="errorText"></div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

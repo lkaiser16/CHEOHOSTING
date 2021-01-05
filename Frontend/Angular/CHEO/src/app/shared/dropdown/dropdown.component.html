@@ -1,0 +1,13 @@
+<form class="form-allgemeines">
+  <mat-form-field class="form-allgemeines-full-width">
+    <mat-select [(value)]="selectedItem" (selectionChange)="selectionChanged($event.value)">
+      <input class="search" placeholder="Search" (keyup)="onKey($event.target.value)">
+      <mat-option [value]="null">None</mat-option>
+      <mat-option *ngFor="let option of filteredOptions" [value]="option">
+        {{option.value}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-error *ngIf="isValid === false" style="margin-top: 5px;">{{validierungMessage}}</mat-error>
+</form>
+<h1 class="combo-unterschrift">{{formName}}</h1>

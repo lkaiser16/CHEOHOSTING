@@ -1,0 +1,29 @@
+<div class="header-outer">
+  <app-view-title-and-subtitle [title]="'Guten Tag, '+Vorname + '.'" [subtitle]="'Was möchtest du tun?'">
+  </app-view-title-and-subtitle>
+</div>
+<div id="buttons-outer">
+  <app-icon-button [iconName]='"playlist_add"' [buttonSizeBig]="true" [route]='"/Bestellauftrag"'
+    [unterschrift]="'Neuer Bestellauftrag'"></app-icon-button>
+  <app-icon-button [iconName]='"assignment"' [buttonSizeBig]="true" [route]='"/Bestellauftragsuebersicht"'
+    [unterschrift]="'Bestellauftragsübersicht'"></app-icon-button>
+  <app-icon-button [hidden]="globals.noAdmin" [iconName]='"add"' [buttonSizeBig]="true" [route]='"/Bestellvorgang"'
+    [unterschrift]="'Neue Bestellung'"></app-icon-button>
+  <app-icon-button [iconName]='"assignment"' [buttonSizeBig]="true" [route]='"/Bestellungsuebersicht"'
+    [unterschrift]="'Bestellungsübersicht'"></app-icon-button>
+  <app-icon-button [hidden]="globals.noAdmin" [iconName]='"settings"' [buttonSizeBig]="true" [route]='"/VerwaltungHome"'
+    [unterschrift]="'Verwaltung'"></app-icon-button>
+</div>
+
+<div id="search-bar-outer">
+  <div class="search-bar-inner-one" fxFlex="80">
+    {{bestelllistenName}}
+  </div>
+</div>
+<app-custom-table *ngIf="showBestellungsuebersicht" [tableData]="bestellungen" [tableColumns]="bestellungenColumns"
+  (tableRowClicked)="BestellungsUebersichtTableClicked($event)" [tableHeaders]="bestellungenDisplayedHeader">
+</app-custom-table>
+<app-custom-table *ngIf="showBestellauftraege" [tableData]="bestellauftraege" [tableColumns]="bestellauftraegeColumns"
+  (tableRowClicked)="BestellungsAuftragTableClicked($event)" [tableHeaders]="bestellauftraegeDisplayedHeader">
+</app-custom-table>
+<app-loading-screen *ngIf="dataisLoading" class="loadingScreen"></app-loading-screen>

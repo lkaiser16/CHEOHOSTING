@@ -1,0 +1,8 @@
+<form class="eingabe-form">
+  <mat-form-field class="eingabe-form-full-width">
+    <input [type]="type" matInput [(ngModel)]='selectedValue' (input)="inputChanged()"
+      [ngModelOptions]="{standalone: true}">
+  </mat-form-field>
+  <mat-error *ngIf="isValid === false" style="margin-top: 5px;">{{validierungMessage}}</mat-error>
+</form>
+<h1 class="input-unterschrift">{{formName}}</h1>

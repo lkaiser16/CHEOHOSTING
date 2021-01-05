@@ -1,0 +1,34 @@
+<div style="width: 100%; margin-bottom: 5px;" *ngFor="let chemikalie of chemikalien; ">
+  <div style="width: 24%;">
+    <input class="input-feld" type="text" [value]="chemikalie.name"
+      (change)="chemikalie.name = $event.target.value; chemikalienListChanged()">
+    <h1 class="input-beschreibung">NAME</h1>
+  </div>
+  <div style="width: 24%">
+    <input class="input-feld" type="text" [value]="chemikalie.reinheit"
+      (change)="chemikalie.reinheit = $event.target.value; chemikalienListChanged()">
+    <h1 class="input-beschreibung">REINHEIT</h1>
+  </div>
+  <div style="width: 24%;">
+    <input class="input-feld" type="text" [value]="chemikalie.menge"
+      (change)="chemikalie.menge = $event.target.value; chemikalienListChanged()">
+    <h1 class="input-beschreibung">MENGE</h1>
+  </div>
+  <div style="width: 24%;">
+    <input class="input-feld" type="number" matInput [value]='chemikalie.preis'
+      (input)="chemikalie.preis = roundPrice($event.target.value); chemikalienListChanged()" step="0.01"
+      pattern="^\d+(.\d{1,2})?" min="0">
+    <h1 class="input-beschreibung">PREIS</h1>
+  </div>
+  <div style="width: 4%; vertical-align: top;">
+    <button mat-mini-fab class="btnDelete" (click)="chemikalien.splice(chemikalien.indexOf(chemikalie), 1)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</div>
+<hr class="trennstrich">
+<div class="btnAddWrapper">
+  <button mat-mini-fab class="btnAdd" (click)="addChemikalienRow()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

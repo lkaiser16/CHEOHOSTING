@@ -1,0 +1,77 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@font-face {
+  font-family: 'Gotham Bold';
+  src: url(assets/fonts/HomepageBaukasten-Bold.otf) format("opentype");
+  font-style: normal;
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: Gotham Light;
+  src: url(assets/fonts/Metropolis-ExtraLight.otf) format("opentype");
+  font-style: normal;
+  font-weight: 100;
+}
+
+:root {
+  --main: #046c94;
+  --button: #2e93bb;
+  --font:  #5b9eb9;
+  --hover: #046c94;
+  --highlight: #7bb4cb;
+  --button-icon: #E9EEC4;
+  --border: #707070;
+}
+
+::-webkit-scrollbar {
+  height: 18px;
+  width: 14px;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+  height: 0;
+  width: 0;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-clip: padding-box;
+  background-color: rgba(0, 0, 0, 0.15);
+  border: 4px solid rgba(0, 0, 0, 0);
+  height: 6px;
+  border-radius: 7px;
+  webkit-box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05);
+}
+
+::ng-deep .mat-form-field-empty.mat-form-field-label {
+  color: var(--font);
+}
+
+::ng-deep .mat-form-field-underline,
+::ng-deep .mat-form-field-ripple {
+  background-color: var(--font) !important;
+  color: var(--font) !important;
+}
+
+* {
+  font-family: gotham light;
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

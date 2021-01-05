@@ -1,0 +1,60 @@
+<div id="header-outer">
+  <div fxLayout="row">
+    <app-view-title-and-subtitle [title]="'Verwaltung'" [subtitle]="'Verwaltung der Personen'">
+    </app-view-title-and-subtitle>
+    <div id="buttons-outer" style="position: relative;">
+      <app-icon-button [iconName]='"save"' [buttonSizeBig]="false" [unterschrift]="'Person speichern'"
+        (clickEvent)="personSpeichern()"></app-icon-button>
+      <app-icon-button [iconName]='"delete"' [buttonSizeBig]="false" [unterschrift]="'Person löschen'"
+      (clickEvent)="personLoeschen()">
+      </app-icon-button>
+      <app-icon-button [iconName]='"group_add"' [buttonSizeBig]="false" [unterschrift]="'Personenübersicht'"
+        route='/VerwaltungPerson'>
+      </app-icon-button>
+    </div>
+  </div>
+</div>
+<div fxLayout="column" style="margin-bottom: 20px;">
+  <h1 class="header" style="margin-top: 0px;">Allgemeines</h1>
+  <div style="width: 100%;">
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-custom-input (inputValue)="this.person.vorname = $event" [selectedValue]="person.vorname"
+        [formName]="'VORNAME*'" [validierungMessage]="'Vorname muss gesetzt werden'" [isValid]="vornameIsValid">
+      </app-custom-input>
+    </div>
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-custom-input (inputValue)="this.person.nachname = $event" [selectedValue]="person.nachname"
+        [formName]="'NACHNAME*'" [validierungMessage]="'Nachname muss gesetzt werden'" [isValid]="nachnameIsValid">
+      </app-custom-input>
+    </div>
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-custom-input (inputValue)="this.person.akNummer = $event" [selectedValue]="person.akNummer"
+        [formName]="'AK-NUMMER*'" [validierungMessage]="'AK-Nummer muss gesetzt werden'" [isValid]="akNummerIsValid">
+      </app-custom-input>
+    </div>
+  </div>
+  <h1 class="header">Weiteres</h1>
+  <div style="width: 100%;">
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-custom-input (inputValue)="this.person.raumnummer = $event" [selectedValue]="person.raumnummer"
+        [formName]="'RAUMNUMMER*'" [validierungMessage]="'Raumnummer muss gesetzt werden'" [isValid]="raumnummerIsValid">
+      </app-custom-input>
+    </div>
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-custom-input (inputValue)="this.person.funktion = $event" [selectedValue]="person.funktion"
+        [formName]="'FUNKTION'">
+      </app-custom-input>
+    </div>
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-custom-input (inputValue)="this.person.durchwahl = $event" [selectedValue]="person.durchwahl"
+        [formName]="'DURCHWAHL'">
+      </app-custom-input>
+    </div>
+  </div>
+  <div style="width: 100%;">
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-dropdown (inputValue)="zugehoerigkeitChanged($event)" [formName]="'ZUGEHOERIGKEIT'"
+        [options]="zugehoerigkeitKeyValue" [selectedKey]="selectedZugehoerigkeit"></app-dropdown>
+    </div>
+  </div>
+</div>

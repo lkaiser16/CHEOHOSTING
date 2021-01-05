@@ -1,0 +1,67 @@
+#buttons-outer
+{
+	margin-top: auto;
+	min-height: 10%;
+	width: 100%;
+	text-align: center;
+}
+#header-outer
+{
+	font-family: gotham bold;
+	font-size: 48px;
+	margin-bottom: 10px;
+	margin-top: 20px;
+	text-align: left;
+}
+.char-count
+{
+	bottom: 0;
+	height: 20px;
+	left: 0;
+	margin-left: 20px;
+	position: absolute;
+}
+.header-teilbereiche
+{
+	font-family: gotham bold;
+	font-size: 24px;
+	line-height: 24px;
+	margin-top: 20px;
+}
+.textarea
+{
+	border: 1.5px solid var(--border);
+	border-radius: 25px;
+	display: block;
+	
+	font-size: 18px;
+	line-height: 20px;
+	max-width: 100%;
+	min-height: 220px;
+	min-width: 150px;
+	overflow: hidden;
+	padding: 10px;
+	resize: both;
+	width: 100%;
+	box-sizing: border-box;
+}
+.textarea:focus
+{
+	outline: none;
+}
+.textarea[contenteditable]:empty::before
+{
+	color: gray;
+	content: "";
+}
+.textarea-wrapper
+{
+	padding-bottom: 20px;
+	position: relative;
+}
+h1
+{
+	font-family: gotham bold;
+	font-size: 110%;
+	font-weight: 100;
+}

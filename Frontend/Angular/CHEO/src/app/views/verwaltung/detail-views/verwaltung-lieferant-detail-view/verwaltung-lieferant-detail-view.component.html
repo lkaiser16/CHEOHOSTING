@@ -1,0 +1,99 @@
+<div id="header-outer">
+  <div fxLayout="row">
+    <app-view-title-and-subtitle [title]="'Verwaltung'" [subtitle]="'Verwaltung der Lieferanten'">
+    </app-view-title-and-subtitle>
+    <div id="buttons-outer" style="position: relative;">
+      <app-icon-button [iconName]='"save"' [buttonSizeBig]="false" [unterschrift]="'Lieferant speichern'"
+        (clickEvent)="lieferantSpeichern()"></app-icon-button>
+      <app-icon-button [iconName]='"delete"' [buttonSizeBig]="false" [unterschrift]="'Lieferant löschen'"
+      (clickEvent)="lieferantLoeschen()">
+      </app-icon-button>
+      <app-icon-button [iconName]='"local_shipping"' [buttonSizeBig]="false" [unterschrift]="'Lieferantenübersicht'"
+        route='/VerwaltungLieferant'>
+      </app-icon-button>
+    </div>
+  </div>
+</div>
+<div fxLayout="column" style="margin-bottom: 20px;">
+  <h1 class="header" style="margin-top: 0px;">Allgemeines</h1>
+  <div style="width: 100%;">
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-custom-input (inputValue)="this.lieferant.name = $event" [selectedValue]="lieferant.name"
+        [formName]="'NAME*'" [validierungMessage]="'Name muss gesetzt werden'" [isValid]="nameIsValid">
+      </app-custom-input>
+    </div>
+  </div>
+  <h1 class="header">Adresse</h1>
+  <div style="width: 100%;">
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-custom-input (inputValue)="this.lieferant.strasse = $event" [selectedValue]="lieferant.strasse"
+        [formName]="'STRASSE*'" [validierungMessage]="'Strasse muss gesetzt werden'" [isValid]="strasseIsValid">
+      </app-custom-input>
+    </div>
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-custom-input (inputValue)="this.lieferant.hausnummer = $event" [selectedValue]="lieferant.hausnummer"
+        [formName]="'HAUSNUMMER*'" [validierungMessage]="'Hausnummer muss gesetzt werden'" [isValid]="hausnummerIsValid">
+      </app-custom-input>
+    </div>
+  </div>
+  <div style="width: 100%;">
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-custom-input (inputValue)="this.lieferant.plz = $event" [selectedValue]="lieferant.plz"
+        [formName]="'POSTLEITZAHL*'" [validierungMessage]="'Postleitzahl muss gesetzt werden'" [isValid]="plzIsValid">
+      </app-custom-input>
+    </div>
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-custom-input (inputValue)="this.lieferant.stadt = $event" [selectedValue]="lieferant.stadt"
+        [formName]="'STADT*'" [validierungMessage]="'Stadt muss gesetzt werden'" [isValid]="stadtIsValid">
+      </app-custom-input>
+    </div>
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-custom-input (inputValue)="this.lieferant.land = $event" [selectedValue]="lieferant.land"
+        [formName]="'LAND*'" [validierungMessage]="'Land muss gesetzt werden'" [isValid]="landIsValid">
+      </app-custom-input>
+    </div>
+  </div>
+  <h1 class="header">Kontaktdaten</h1>
+  <div style="width: 100%;">
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-custom-input (inputValue)="this.lieferant.kontaktperson = $event" [selectedValue]="lieferant.kontaktperson"
+        [formName]="'KONTAKTPERSON'">
+      </app-custom-input>
+    </div>
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-custom-input (inputValue)="this.lieferant.email = $event" [selectedValue]="lieferant.email"
+        [formName]="'E-MAIL'">
+      </app-custom-input>
+    </div>
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-custom-input (inputValue)="this.lieferant.telefonnummer = $event" [selectedValue]="lieferant.telefonnummer"
+        [formName]="'TELEFONNUMMER'">
+      </app-custom-input>
+    </div>
+  </div>
+  <h1 class="header">Weiteres</h1>
+  <div style="width: 100%;">
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-custom-input (inputValue)="this.lieferant.website = $event" [selectedValue]="lieferant.website"
+        [formName]="'WEBSITE'">
+      </app-custom-input>
+    </div>
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-custom-input (inputValue)="this.lieferant.login = $event" [selectedValue]="lieferant.login"
+        [formName]="'LOGIN'">
+      </app-custom-input>
+    </div>
+    <div fxLayout="column" fxFlex="33" class="div-input">
+      <app-custom-input (inputValue)="this.lieferant.rabatte = $event" [selectedValue]="lieferant.rabatte"
+        [formName]="'RABATTE'">
+      </app-custom-input>
+    </div>
+  </div>
+  <h1 class="header">Anmerkungen</h1>
+  <div style="width: 100%;">
+    <div class="textarea-wrapper">
+      <textarea pInputTextArea class="textarea" role="textbox" [(ngModel)]="lieferant.anmerkung"
+        contenteditable></textarea>
+    </div>
+  </div>
+</div>
